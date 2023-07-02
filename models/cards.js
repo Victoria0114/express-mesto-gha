@@ -5,7 +5,7 @@ const cardSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Поле "name" должно быть заполнено'],
     minlength: [2, 'Минимальная длина поля "name" - 2'],
-    maxlength: [30, 'Максимальная длина поля "name" - 30']
+    maxlength: [30, 'Максимальная длина поля "name" - 30'],
   },
   link: {
     type: String,
@@ -29,7 +29,7 @@ const cardSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-})
+});
 
 const Card = mongoose.model('card', cardSchema);
 module.exports = Card;
