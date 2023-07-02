@@ -1,18 +1,18 @@
 
-const User = require('../models/user')
+const User = require('../models/user');
 const { ERROR_CODE } = require('../utils/constsnts');
 
 const createUser = (req, res) => {
   const { name, about, avatar } = req.body;
 
   User.create({ name, about, avatar })
-  .then((user) => {res.status(201).send(user)})
-  .catch((err) => {
-    if (err.name === 'ValidationError') {
-      res.status(ERROR_CODE.BAD_REQUEST).send({ message: 'Переданы некорректные данные' });
-    } else {
-      res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
-    }
+    .then((user) => { res.status(201).send(user) });
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        res.status(ERROR_CODE.BAD_REQUEST).send({ message: 'Переданы некорректные данные' });
+      } else {
+        res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
+      }
   });
   console.log(req.body);
 };
@@ -20,18 +20,17 @@ const createUser = (req, res) => {
 const getAllUsers = (req, res) => {
   User.find({})
   .then((users) => {
-    res.send(users)
+    res.send(users);
   })
   .catch(() => {
     res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
-  })
+  });
 
   console.log(req.body);
 };
 
 const getUser = (req, res) => {
-
-  const { id } = req.params
+  const { id } = req.params;
 
   User.findById(id)
   .then((user) => {
@@ -91,7 +90,7 @@ const updateUserAvatar = (req, res) => {
   User.findByIdAndUpdate(
     userId,
     { avatar },
-    { new: true, runValidators: true }
+    { new: true, runValidators: true },
   )
   .then((user) => {
     if (!user) {
@@ -124,5 +123,5 @@ module.exports = {
   getAllUsers,
   getUser,
   updateUser,
-  updateUserAvatar
+  updateUserAvatar,
 };
