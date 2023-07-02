@@ -14,7 +14,6 @@ const createUser = (req, res) => {
         res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
       }
   });
-  console.log(req.body);
 };
 
 const getAllUsers = (req, res) => {
