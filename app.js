@@ -20,12 +20,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/users', usersRouter);
+app.use('/cards', cardsRouter);
+
 app.use('/', (req, res) => {
   res.status(ERROR_CODE.NOT_FOUND).send({ message: 'Страница не найдена' });
 });
-
-app.use('/users', usersRouter);
-app.use('/cards', cardsRouter);
 
 app.listen(PORT, () => {
   console.log('Сервер запущен');
