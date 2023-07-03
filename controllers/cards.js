@@ -4,8 +4,8 @@ const { ERROR_CODE } = require('../utils/constsnts');
 
 const getAllCards = (req, res) => {
   Card.find({})
-    .then((card) => {
-      res.send(card);
+    .then((cards) => {
+      res.send(cards);
     })
     .catch(() => {
       res.status(ERROR_CODE.SERVER_ERROR).console.log('На сервере произошла ошибка');
@@ -18,7 +18,7 @@ const createCard = (req, res) => {
 
   Card.create({ name, link, owner: req.user._id })
     .then((card) => {
-      res.send(card);
+      res.status(ERROR_CODE.CREATED).send(card);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
