@@ -25,11 +25,14 @@ app.use('/cards', cardsRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(ERROR_CODE.NOT_FOUND).send({ message: 'Не найдено' });
   res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'Что-то сломалось' });
 });
 
 app.listen(PORT, () => {
   console.log('Сервер запущен');
   console.log(`App listening on port ${PORT}`);
+});
+
+app.use((err, req, res, next) => {
+  res.status(404).send("Sorry can't find that!");
 });
