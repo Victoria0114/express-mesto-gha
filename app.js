@@ -23,6 +23,10 @@ app.use(bodyParser.json());
 app.use('/users', usersRouter);
 app.use('/cards', cardsRouter);
 
+app.use((req, res) => {
+  res.status(404).send("Sorry can't find that!");
+});
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'Что-то сломалось' });
@@ -32,8 +36,4 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log('Сервер запущен');
   console.log(`App listening on port ${PORT}`);
-});
-
-app.use((req, res) => {
-  res.status(404).send("Sorry can't find that!");
 });
