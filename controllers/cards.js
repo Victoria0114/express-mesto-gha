@@ -10,7 +10,6 @@ const getAllCards = (req, res) => {
     .catch(() => {
       res.status(ERROR_CODE.SERVER_ERROR).console.log('На сервере произошла ошибка');
     });
-  console.log(req.body);
 };
 
 const createCard = (req, res) => {
@@ -28,8 +27,6 @@ const createCard = (req, res) => {
         res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
       }
     });
-
-  console.log(req.user._id);
 };
 
 const deleteCard = (req, res) => {
@@ -49,8 +46,6 @@ const deleteCard = (req, res) => {
         res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
       }
     });
-
-  console.log(req.body);
 };
 
 const putLike = (req, res) => {
@@ -75,8 +70,6 @@ const putLike = (req, res) => {
         res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
       }
     });
-
-  console.log(req.body);
 };
 
 const deleteLike = (req, res) => {
@@ -101,8 +94,6 @@ const deleteLike = (req, res) => {
         res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
       }
     });
-
-  console.log(req.body);
 };
 
 module.exports = {

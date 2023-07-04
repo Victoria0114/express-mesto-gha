@@ -23,8 +23,6 @@ const getAllUsers = (req, res) => {
     .catch(() => {
       res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
     });
-
-  console.log(req.body);
 };
 
 const getUser = (req, res) => {
@@ -45,8 +43,6 @@ const getUser = (req, res) => {
         res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'На сервере произошла ошибка' });
       }
     });
-
-  console.log(req.body);
 };
 
 const updateUser = (req, res) => {
@@ -77,8 +73,6 @@ const updateUser = (req, res) => {
         });
       }
     });
-
-  console.log(req.body);
 };
 
 const updateUserAvatar = (req, res) => {
@@ -112,8 +106,6 @@ const updateUserAvatar = (req, res) => {
         });
       }
     });
-
-  console.log(req.body);
 };
 
 module.exports = {
