@@ -23,9 +23,10 @@ app.use(bodyParser.json());
 app.use('/users', usersRouter);
 app.use('/cards', cardsRouter);
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'Что-то сломалось' });
+  next();
 });
 
 app.listen(PORT, () => {
