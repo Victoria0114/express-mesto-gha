@@ -24,7 +24,7 @@ app.use('/users', usersRouter);
 app.use('/cards', cardsRouter);
 
 app.use((req, res) => {
-  res.status(ERROR_CODE.NOT_FOUND).send({message: 'Не найдено' });
+  res.status(ERROR_CODE.NOT_FOUND).send({ message: 'Не найдено' });
 });
 
 app.use((err, req, res, next) => {
