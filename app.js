@@ -25,6 +25,7 @@ app.use('/cards', cardsRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
+  res.status(ERROR_CODE.NOT_FOUND).send({ message: 'Не найдено' });
   res.status(ERROR_CODE.SERVER_ERROR).send({ message: 'Что-то сломалось' });
 });
 
