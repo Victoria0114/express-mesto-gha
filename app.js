@@ -5,8 +5,7 @@ const { ERROR_CODE } = require('./utils/constsnts');
 
 const { PORT = 3000 } = process.env;
 const app = express();
-const usersRouter = require('./routes/users');
-const cardsRouter = require('./routes/cards');
+const router = require('./routes/index');
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
 console.log('Connected to db');
@@ -18,11 +17,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/users', usersRouter);
-app.use('/cards', cardsRouter);
+app.use('/', router);
 
 app.use((req, res) => {
-  res.status(ERROR_CODE.NOT_FOUND).send({ message: 'Не найдено' });
+  res.status(ERROR_CODE.NOT_FOUND).send({ message: 'Страница не найдена' });
 });
 
 app.use((err, req, res, next) => {
