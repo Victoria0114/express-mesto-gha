@@ -19,7 +19,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser.json());
 app.use('/users', usersRouter);
 app.use('/cards', cardsRouter);
 
