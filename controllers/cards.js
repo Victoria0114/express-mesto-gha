@@ -20,7 +20,6 @@ const createCard = (req, res) => {
       res.status(ERROR_CODE.CREATED).send(card);
     })
     .catch((err) => {
-      console.log(err);
       if (err.name === 'ValidationError') {
         res.status(ERROR_CODE.BAD_REQUEST).send({ message: 'Переданы некорректные данные при создании карточки.' });
       } else {
