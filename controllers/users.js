@@ -4,6 +4,7 @@ const User = require('../models/user');
 const BadRequestError = require('../errors/badRequestError');
 const NotFoundError = require('../errors/notFoundError');
 const ConflictError = require('../errors/conflictError');
+const UnauthorizedError = require('../errors/unauthorizedError');
 
 const getAllUsers = (req, res, next) => {
   User.find({})
@@ -50,7 +51,7 @@ const createUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new BadRequestError(
+        next(new UnauthorizedError(
           'Переданы некорректные данные при создании пользователя',
         ));
       } else if (err.code === 11000) {
