@@ -4,7 +4,7 @@ const { errors } = require('celebrate');
 const helmet = require('helmet');
 
 const routes = require('./routes');
-const error = require('./middlewares/errors');
+const error = require('./middlewares/error');
 
 const { PORT = 3000 } = process.env;
 const app = express();

@@ -8,3 +8,8 @@ node_modules
 
 # Optional npm cache directory
 .npm
+
+# Optional REPL history
+.DS_Store
+.idea
+.vscode
