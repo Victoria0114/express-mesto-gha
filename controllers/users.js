@@ -8,7 +8,7 @@ const ConflictError = require('../errors/conflictError');
 const getAllUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.send(users))
-    .catch(next)
+    .catch(next);
 };
 
 const getUser = (req, res, next) => {
@@ -22,12 +22,14 @@ const getUser = (req, res, next) => {
       if (err.name === 'CastError') {
         return next(new BadRequestError('Переданы некорректные данные'));
       }
-      return next(err)
+      return next(err);
     });
 };
 
 const createUser = (req, res, next) => {
-  const { name, about, avatar, email, password } = req.body;
+  const {
+    name, about, avatar, email, password,
+  } = req.body;
   bcrypt
     .hash(password, 10)
     .then((hash) => User
@@ -86,11 +88,11 @@ const updateUserAvatar = (req, res, next) => {
 
   User
     .findByIdAndUpdate(
-    userId,
-    { avatar },
-    { new: true, runValidators: true },
+      userId,
+      { avatar },
+      { new: true, runValidators: true },
     )
-    .orFail(() => {throw new NotFoundError('Пользователь по указанному _id не найден');})
+    .orFail(() => { throw new NotFoundError('Пользователь по указанному _id не найден'); })
     .then((user) => res.send({ user }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
