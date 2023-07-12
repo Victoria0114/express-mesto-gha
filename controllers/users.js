@@ -74,7 +74,7 @@ const updateUser = (req, res, next) => {
     .then((user) => res.send({ user }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestError('Переданы некорректные данные при обновлении профиля.')),
+        return next(new BadRequestError('Переданы некорректные данные при обновлении профиля.'));
       }
       return next(err);
     });
