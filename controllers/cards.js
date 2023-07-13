@@ -14,9 +14,10 @@ const getAllCards = (req, res, next) => {
 
 const createCard = (req, res, next) => {
   const { name, link } = req.body;
+  const owner = req.user._id;
 
   Card
-    .create({ name, link, owner: req.user._id })
+    .create({ name, link, owner })
     .then((card) => {
       res.status(201).send(card);
     })
@@ -49,7 +50,7 @@ const deleteCard = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError(
-          `Передан некорректны id: ${cardId} в методы удаления карточки`,
+          `Передан некорректный id: ${cardId} в методы удаления карточки`,
         ));
       } else if (err.name === 'NotFoundError') {
         next(new NotFoundError(`Карточка с id: ${cardId} не найдена`));
