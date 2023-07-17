@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { UnauthorizedErrorRRR } = require('../errors/unauthorizedError');
+const { UnauthorizedError } = require('../errors/unauthorizedError');
 
 const extractBearerToken = (header) => header.replace('Bearer ', '');
 
