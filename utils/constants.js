@@ -21,4 +21,3 @@ module.exports = {
   AUTHENTICATION_KEY,
   urlCheckPattern,
 };
-
