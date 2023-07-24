@@ -1,7 +1,7 @@
 {
   "name": "express-mesto-gha",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![Tests](../../actions/workflows/tests-13-sprint.yml/badge.svg)](../../actions/workflows/tests-13-sprint.yml) [![Tests](../../actions/workflows/tests-14-sprint.yml/badge.svg)](../../actions/workflows/tests-14-sprint.yml) # Проект Mesto фронтенд + бэкенд",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -17,16 +17,19 @@
     "bcryptjs": "^2.4.3",
     "celebrate": "^15.0.1",
     "express": "^4.18.2",
-    "helmet": "^7.0.0",
+    "helmet": "^6.1.5",
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.1",
-    "mongoose": "^7.3.1",
-    "validator": "^13.9.0"
+    "mongoose": "^7.1.0",
+    "validator": "^13.9.0",
+    "body-parser": "^1.20.2",
+    "express-rate-limit": "^6.7.0"
   },
   "devDependencies": {
-    "eslint": "^8.2.0",
+    "eslint": "^8.39.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-require": "^0.0.1",
     "nodemon": "^2.0.22"
   }
 }
