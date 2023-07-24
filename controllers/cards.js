@@ -4,7 +4,6 @@ const NotFoundError = require('../errors/NotFoundError');
 const BadRequestError = require('../errors/BadRequestError');
 const ForbiddenError = require('../errors/ForbiddenError');
 
-
 // Импорт статуса создания нового документа методом create
 const { CREATED } = require('../utils/constants');
 
